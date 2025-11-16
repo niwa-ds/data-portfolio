@@ -5,7 +5,7 @@ FROM python:3.11-slim
 ENV PYTHONDONTWRITEBYTECODE=1 \
 	PYTHONUNBUFFERED=1 \
 	PYTHONUTF8=1 \
-	PYTHONIOENDOCING=utf8
+	PYTHONIOENCODING=utf-8
 
 # Set working directory inside the container
 WORKDIR /workspace
@@ -13,9 +13,12 @@ WORKDIR /workspace
 # Install required system packages (build tools & Japanese fonts)
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	build-essential \
+	git \
+	sudo \
+	curl \
 	fonts-ipafont-gothic \
 	fonts-ipafont-mincho \
-	&& rm -rf /var/lib/apt/lists/*
+	&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
 COPY requirements.txt .
