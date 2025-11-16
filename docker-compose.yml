@@ -1,0 +1,18 @@
+services:
+  notebook:
+    # Build the image using the Dockerfile in the current directory
+    build: .
+
+    # Name of the runnning container
+    container_name: data-portfolio-notebook
+
+    # Expose JupyterLab Port
+    ports:
+      - "8888:8888"
+
+      # Mount the project directory into the container workspace
+    volumes:
+      - .:/workspace
+
+      # No restart policy needed for Local development
+    restart: "no"
