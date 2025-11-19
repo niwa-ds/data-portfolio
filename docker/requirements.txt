@@ -1,0 +1,29 @@
+# ========================
+# Environment of Jupyter
+# ========================
+jupyterlab
+ipykernel
+
+
+# ========================
+# Basic Data Analysis
+# ========================
+numpy
+pandas
+matplotlib
+seaborn
+
+
+# ========================
+# Machine Learning / Statistics
+# ========================
+scikit-learn
+scipy
+statsmodels
+
+
+# ========================
+# Natural Language Processing (Japanese)
+# ========================
+fugashi
+unidic-lite
