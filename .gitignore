@@ -14,10 +14,19 @@ env/
 
 # Folders and files to exclude from Docker build
 data/
-notebooks/
 *.csv
 *.xlsx
 
 # OS-specific temporary files
 .DS_Store
 Thumbs.db
+
+# Editor file
+vscode/
+idea/
+
+# Temp file
+*.log
+*.tmp
+*.swp
+*.bak
