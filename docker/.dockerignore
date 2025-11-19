@@ -12,16 +12,14 @@ __pycache__/
 venv/
 env/
 
-# Folders and files to exclude from Docker build
-data/
-notebooks/
-*.csv
-*.xlsx
-
 # OS-specific temporary files
 .DS_Store
 Thumbs.db
 
-# Git repository files
-.git/
-.gitignore
+# Editor settings
+.vscode/
+.idea/
+
+# Logs / temp files
+*.log
+*.tmp

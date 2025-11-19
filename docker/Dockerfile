@@ -22,7 +22,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Install Python dependencies
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+
+# Set default font for matplotlib (japanese font)
+RUN mkdir -p /root/.config/matplotlib && \
+	echo "font.family: IPAGothic" > /root/.config/matplotlib/matplotlibrc
 
 # Expose JupyterLab port
 EXPOSE 8888

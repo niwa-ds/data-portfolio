@@ -1,17 +1,15 @@
 services:
-  dev:
+  notebook:
     # Build the image using the Dockerfile in the current directory
-    build: .
-
-    # Name of the runnning container
-    container_name: data-portfolio-dev
+    build:
+      context: ./docker
 
     # Set working directory inside the container
     working_dir: /workspace
 
     # Expose JupyterLab Port
     ports:
-      - "8888:8888"
+      - "127.0.0.1:8888:8888"
 
     # Mount the project directory into the container workspace
     volumes:
