@@ -27,3 +27,8 @@ statsmodels
 # ========================
 fugashi
 unidic-lite
+
+# ========================
+# Dev Tools / Testing
+# ========================
+pytest

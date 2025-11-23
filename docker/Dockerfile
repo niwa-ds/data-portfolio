@@ -5,7 +5,8 @@ FROM python:3.11-slim
 ENV PYTHONDONTWRITEBYTECODE=1 \
 	PYTHONUNBUFFERED=1 \
 	PYTHONUTF8=1 \
-	PYTHONIOENCODING=utf-8
+	PYTHONIOENCODING=utf-8 \
+	PYTHONPATH="/workspace/src:${PYTHONPATH}"
 
 # Set working directory inside the container
 WORKDIR /workspace
@@ -16,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	git \
 	sudo \
 	curl \
+	sqlite3 \
 	fonts-ipafont-gothic \
 	fonts-ipafont-mincho \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/*
