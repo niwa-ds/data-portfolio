@@ -20,6 +20,7 @@ services:
       - ./scripts:/workspace/scripts
       - ./sql:/workspace/sql
       - ./data:/workspace/data
+      - ./public:/workspace/public
 
     # Keep container interactive-friendly
     tty: true
