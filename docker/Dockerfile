@@ -5,8 +5,7 @@ FROM python:3.11-slim
 ENV PYTHONDONTWRITEBYTECODE=1 \
 	PYTHONUNBUFFERED=1 \
 	PYTHONUTF8=1 \
-	PYTHONIOENCODING=utf-8 \
-	PYTHONPATH="/workspace/src:${PYTHONPATH}"
+	PYTHONIOENCODING=utf-8
 
 # Set working directory inside the container
 WORKDIR /workspace
@@ -22,9 +21,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	fonts-ipafont-mincho \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-COPY requirements.txt .
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+# Install project package & dependencies
+COPY pyproject.toml .
+COPY README.md .
+COPY src/ ./src
+
+RUN pip install --upgrade pip && pip install --no-cache-dir -e ".[dev,notebook]"
+
 
 # Set default font for matplotlib (japanese font)
 RUN mkdir -p /root/.config/matplotlib && \

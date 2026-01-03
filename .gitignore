@@ -20,6 +20,8 @@ data/
 # OS-specific temporary files
 .DS_Store
 Thumbs.db
+.Trash-*
+
 
 # Editor file
 vscode/

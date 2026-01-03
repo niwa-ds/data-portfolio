@@ -2,7 +2,8 @@ services:
   notebook:
     # Build the image using the Dockerfile in the current directory
     build:
-      context: ./docker
+      context: .
+      dockerfile: ./docker/Dockerfile
 
     # Set working directory inside the container
     working_dir: /workspace
@@ -13,7 +14,12 @@ services:
 
     # Mount the project directory into the container workspace
     volumes:
-      - .:/workspace
+      - ./src:/workspace/src
+      - ./notebook:/workspace/notebook
+      - ./tests:/workspace/tests
+      - ./scripts:/workspace/scripts
+      - ./sql:/workspace/sql
+      - ./data:/workspace/data
 
     # Keep container interactive-friendly
     tty: true
