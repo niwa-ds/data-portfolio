@@ -1,5 +1,5 @@
 -- seed movie(475)を高評価(>=4)したユーザーが高評価した共起映画のジャンル分布を集計
--- 仮説: Crime / Thriller/ War など暗めのトーンのジャンルがベースラインより相対的に高い（lift > 1）
+-- 仮説: Crime / Thriller/ War など暗めのトーンのジャンルがベースラインより相対的に高い（lift > 1.2）
 
 with seed_users as (
   select
